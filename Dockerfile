@@ -1,6 +1,8 @@
 FROM python:2.7.13
 
-RUN pip install pyminifier cython \
+RUN apt-get update \
+ && apt-get install -y libyaml-dev python-dev \
+ && pip install pyminifier cython \
  && pip install awscli \
  && VER="17.05.0-ce" \
  && curl -L -o /tmp/docker-$VER.tgz https://get.docker.com/builds/Linux/x86_64/docker-$VER.tgz \
